@@ -4,7 +4,7 @@ require 'date'
 module NasdaqQuery
   class DividendHistory
     def self.for_symbol(sym)
-      doc = Nokogiri::HTML(`curl -s 'http://www.nasdaq.com/symbol/#{sym}/dividend-history'`)
+      doc = Nokogiri::HTML(`curl -s 'http://www.nasdaq.com/symbol/#{sym.downcase}/dividend-history'`)
       rows = doc.xpath("//table[@class='dataGrid']/tr")
       rows.shift # skip the header row
       entries = rows.map do |row|
