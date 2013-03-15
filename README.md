@@ -1,6 +1,6 @@
 # NasdaqQuery
 
-TODO: Write a gem description
+This gem initially includes just one feature: to look up a company's dividend history. This is useful for calculating a company's beta, which can be computed by a regression that includes, among other factors, a stock's cum-dividend earnings over time.
 
 ## Installation
 
@@ -18,7 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Here's how you'd look up Apple's dividend history:
+
+    require 'nasdaq_query'
+    
+    entries = NasdaqQuery::DividendHistory.for_symbol("aapl")
+    entries.length     # => 32
+    entries.first      # => {:ex_eff_date=>#<Date: 2013-02-07 ((2456331j,0s,0n),+0s,2299161j)>, 
+                       #     :type=>"Cash", 
+                       #     :cash_amt=>2.65, 
+                       #     :declaration_date=>#<Date: 2013-01-23 ((2456316j,0s,0n),+0s,2299161j)>, 
+                       #     :record_date=>#<Date: 2013-02-11 ((2456335j,0s,0n),+0s,2299161j)>, 
+                       #     :payment_date=>#<Date: 2013-02-14 ((2456338j,0s,0n),+0s,2299161j)>}
 
 ## Contributing
 
