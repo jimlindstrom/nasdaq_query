@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Get stock information from Nasdaq.com}
   gem.summary       = %q{Stock info from nasdaq.com}
   gem.homepage      = ""
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
